@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: Inconsolata;
+  font-style: normal;
+  font-weight: 400 500 700 800;
+  font-display: swap;
+  src: url("/fonts/Inconsolata-Variable.ttf") format("truetype");
+}
+
+@theme {
+  --font-display: "Inconsolata", "sans-serif";
+}
