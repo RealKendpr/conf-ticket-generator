@@ -43,20 +43,22 @@ export default function Dropzone() {
         <div
           {...getRootProps({
             className:
-              "dropzone border-neutral-0 bg-slate-500/25 border border-dashed py-5 text-center rounded-xl cursor-pointer my-3",
+              "dropzone border-neutral-0 bg-slate-500/25 border border-dashed pt-5 pb-[23px] text-center rounded-xl cursor-pointer my-3",
           })}
         >
           <input {...getInputProps()} />
           <div className="mx-auto grid size-[51px] place-items-center rounded-xl border-2 border-neutral-300/50">
             <img src="/images/icon-upload.svg" alt="" />
           </div>
-          <p className="text-neutral-0">Drag and drop or click to upload</p>
+          <p className="text-neutral-0 mt-4">
+            Drag and drop or click to upload
+          </p>
         </div>
       ) : (
         <div className="border-neutral-0 my-3 rounded-xl border border-dashed bg-slate-500/25 py-5 text-center">
           {files.map((file) => (
             <div
-              className="mx-auto size-[51px] overflow-hidden rounded-xl border-2 border-neutral-300/50"
+              className="mx-auto grid size-[51px] place-items-center overflow-hidden rounded-xl border-2 border-neutral-300/50"
               key={file.name}
             >
               <img
@@ -86,9 +88,33 @@ export default function Dropzone() {
           </div>
         </div>
       )}
-      <p className="text-neutral-0 text-xs">
-        Upload your photo (JPG or PNG, max size: 500KB).
-      </p>
+      <div className="flex gap-x-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="none"
+          viewBox="0 0 16 16"
+          className="text-neutral-0"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
+          />
+          <path fill="currentColor" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8.004 10.462V7.596M8 5.569v-.042"
+          />
+        </svg>
+        <p className="text-neutral-0 text-xs">
+          Upload your photo (JPG or PNG, max size: 500KB).
+        </p>
+      </div>
     </div>
   );
 }
