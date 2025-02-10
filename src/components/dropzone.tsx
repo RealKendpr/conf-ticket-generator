@@ -20,6 +20,9 @@ export default function Dropzone() {
         ),
       );
     },
+    // this is for change image button, should only work when clicked and not accept any dragged files
+    // if a file is selected (files array's not empty) means the change btn is visible
+    noDrag: files.length > 0 && true,
   });
 
   const handleRemoveImg = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -71,7 +74,15 @@ export default function Dropzone() {
             <button className="underline" onClick={handleRemoveImg}>
               Remove image
             </button>
-            <button>Change image</button>
+            {/* change image button is just a dropzone but with drag n drop disabled */}
+            <div
+              {...getRootProps({
+                className: "dropzone",
+              })}
+            >
+              <input {...getInputProps()} />
+              Change image
+            </div>
           </div>
         </div>
       )}
