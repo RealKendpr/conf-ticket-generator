@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 interface FileType extends File {
@@ -21,6 +21,11 @@ export default function Dropzone() {
       );
     },
   });
+
+  useEffect(() => {
+    //Revoke the data uris to avoid memory leaks, will run on unmount
+    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
+  }, [files]);
 
   return (
     <div className="container mb-7">
@@ -45,7 +50,14 @@ export default function Dropzone() {
               className="mx-auto size-[51px] overflow-hidden rounded-xl border-2 border-neutral-300/50"
               key={file.name}
             >
-              <img src={file.preview} alt="" />
+              <img
+                src={file.preview}
+                alt=""
+                onLoad={() => {
+                  //Revoke the data uris to avoid memory leaks, will run on unmount
+                  URL.revokeObjectURL(file.preview);
+                }}
+              />
             </div>
           ))}
           {/* Avatar options */}
