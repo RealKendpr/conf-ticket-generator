@@ -1,4 +1,4 @@
-import "./App.css";
+import Form from "./components/form";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <h2 className="mt-8 mb-11 text-center text-xl leading-[1.2] text-white">
         Secure your spot at next year's biggest coding conference.
       </h2>
+      <Form></Form>
     </div>
   );
 }
