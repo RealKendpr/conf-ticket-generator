@@ -48,8 +48,9 @@ export default function Dropzone() {
               <img src={file.preview} alt="" />
             </div>
           ))}
-          <div>
-            <button>Remove image</button>
+          //Avatar options
+          <div className="mt-4 flex justify-center gap-2 text-xs text-neutral-300 *:cursor-pointer *:rounded-md *:bg-neutral-300/50 *:px-2 *:pt-[5px] *:pb-[6px]">
+            <button className="underline">Remove image</button>
             <button>Change image</button>
           </div>
         </div>
