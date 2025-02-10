@@ -7,6 +7,7 @@ interface FileType extends File {
 
 export default function Dropzone() {
   const [files, setFiles] = useState<FileType[]>([]);
+  const [tooLarge, setTooLarge] = useState<boolean>(false);
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/*": [],
@@ -23,6 +24,19 @@ export default function Dropzone() {
     // this is for change image button, should only work when clicked and not accept any dragged files
     // if a file is selected (files array's not empty) means the change btn is visible
     noDrag: files.length > 0 && true,
+    multiple: false,
+    maxFiles: 1,
+    //should not exceed file limit, and determine if it does to trigger an alert
+    maxSize: 500000,
+    validator: (file) => {
+      if (file.size > 500000) {
+        setTooLarge(true);
+      }
+      if (file.size <= 500000 && tooLarge) {
+        setTooLarge(false);
+      }
+      return null;
+    },
   });
 
   const handleRemoveImg = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -95,7 +109,7 @@ export default function Dropzone() {
           height="16"
           fill="none"
           viewBox="0 0 16 16"
-          className="text-neutral-0"
+          className={tooLarge ? "text-orange-700" : "text-neutral-0"}
         >
           <path
             stroke="currentColor"
@@ -111,9 +125,19 @@ export default function Dropzone() {
             d="M8.004 10.462V7.596M8 5.569v-.042"
           />
         </svg>
-        <p className="text-neutral-0 text-xs">
-          Upload your photo (JPG or PNG, max size: 500KB).
-        </p>
+        {tooLarge ? (
+          <p
+            className="text-xs text-orange-700"
+            role="alert"
+            aria-live="assertive"
+          >
+            File too large. Please upload a photo under 500KB.
+          </p>
+        ) : (
+          <p className="text-neutral-0 text-xs">
+            Upload your photo (JPG or PNG, max size: 500KB).
+          </p>
+        )}
       </div>
     </div>
   );
