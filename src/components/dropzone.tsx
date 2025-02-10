@@ -10,7 +10,9 @@ export default function Dropzone() {
   const [tooLarge, setTooLarge] = useState<boolean>(false);
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
-      "image/*": [],
+      // should only accept jpeg, png
+      "image/jpeg": [],
+      "image/png": [],
     },
     onDrop: (acceptedFiles) => {
       setFiles(
