@@ -1,24 +1,38 @@
+import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 
-export default function Dropzone() {
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+interface FileType extends File {
+  preview: string;
+}
 
-  const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ));
+export default function Dropzone() {
+  const [files, setFiles] = useState<FileType[]>([]);
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: {
+      "image/*": [],
+    },
+    onDrop: (acceptedFiles) => {
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          }),
+        ),
+      );
+    },
+  });
 
   return (
-    <section className="container">
+    <div className="container">
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        {files.map((file) => (
+          <div key={file.name}>
+            <img src={file.preview} alt="" />
+          </div>
+        ))}
+        <p className="text-neutral-0">Drag and drop or click to upload</p>
       </div>
-      <aside>
-        <h4>Files</h4>
-        <ul>{files}</ul>
-      </aside>
-    </section>
+    </div>
   );
 }
