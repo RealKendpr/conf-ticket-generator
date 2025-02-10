@@ -11,10 +11,16 @@ export default function Input({
 }) {
   return (
     <div>
-      <label className="text-xl" htmlFor={name}>
+      <label className="text-neutral-0 text-xl" htmlFor={name}>
         {label}
       </label>
-      <input className="" type={type} name={name} id={name} placeholder={placeholder} />
+      <input
+        className="text-neutral-0 w-full rounded-xl border border-neutral-500 bg-neutral-500/50 px-4 pt-5 pb-4 text-lg"
+        type={type}
+        name={name}
+        id={name}
+        placeholder={placeholder}
+      />
     </div>
   );
 }
