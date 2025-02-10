@@ -22,6 +22,12 @@ export default function Dropzone() {
     },
   });
 
+  const handleRemoveImg = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    // set files to an empty array, to remove image
+    setFiles([]);
+  };
+
   useEffect(() => {
     //Revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
@@ -54,7 +60,7 @@ export default function Dropzone() {
                 src={file.preview}
                 alt=""
                 onLoad={() => {
-                  //Revoke the data uris to avoid memory leaks, will run on unmount
+                  // Revoke data uri after image is loaded
                   URL.revokeObjectURL(file.preview);
                 }}
               />
@@ -62,7 +68,9 @@ export default function Dropzone() {
           ))}
           {/* Avatar options */}
           <div className="mt-4 flex justify-center gap-2 text-xs text-neutral-300 *:cursor-pointer *:rounded-md *:bg-neutral-300/50 *:px-2 *:pt-[5px] *:pb-[6px]">
-            <button className="underline">Remove image</button>
+            <button className="underline" onClick={handleRemoveImg}>
+              Remove image
+            </button>
             <button>Change image</button>
           </div>
         </div>
