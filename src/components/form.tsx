@@ -1,8 +1,10 @@
+import Dropzone from "./dropzone";
 import Input from "./Input";
 
 export default function Form() {
   return (
     <form action="/">
+      <Dropzone></Dropzone>
       <div className="grid gap-y-7">
         <Input label="Full Name" type="text" name="fullName"></Input>
         <Input
