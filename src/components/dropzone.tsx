@@ -25,23 +25,35 @@ export default function Dropzone() {
   return (
     <div className="container mb-7">
       <p className="text-neutral-0 text-xl">Upload Avatar</p>
-      <div
-        {...getRootProps({
-          className:
-            "dropzone border-neutral-0 bg-slate-500/25 border border-dashed py-5 text-center rounded-xl cursor-pointer my-3",
-        })}
-      >
-        <input {...getInputProps()} />
-        {files.map((file) => (
-          <div
-            className="mx-auto grid size-[51px] place-items-center rounded-xl border-2 border-neutral-300/50"
-            key={file.name}
-          >
-            <img src={file.preview} alt="" />
+      {files.length === 0 ? (
+        <div
+          {...getRootProps({
+            className:
+              "dropzone border-neutral-0 bg-slate-500/25 border border-dashed py-5 text-center rounded-xl cursor-pointer my-3",
+          })}
+        >
+          <input {...getInputProps()} />
+          <div className="mx-auto grid size-[51px] place-items-center rounded-xl border-2 border-neutral-300/50">
+            <img src="/images/icon-upload.svg" alt="" />
           </div>
-        ))}
-        <p className="text-neutral-0">Drag and drop or click to upload</p>
-      </div>
+          <p className="text-neutral-0">Drag and drop or click to upload</p>
+        </div>
+      ) : (
+        <div className="border-neutral-0 my-3 rounded-xl border border-dashed bg-slate-500/25 py-5 text-center">
+          {files.map((file) => (
+            <div
+              className="mx-auto size-[51px] overflow-hidden rounded-xl border-2 border-neutral-300/50"
+              key={file.name}
+            >
+              <img src={file.preview} alt="" />
+            </div>
+          ))}
+          <div>
+            <button>Remove image</button>
+            <button>Change image</button>
+          </div>
+        </div>
+      )}
       <p className="text-neutral-0 text-xs">
         Upload your photo (JPG or PNG, max size: 500KB).
       </p>
