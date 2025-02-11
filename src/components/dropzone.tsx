@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 interface FileType extends File {
@@ -6,6 +6,7 @@ interface FileType extends File {
 }
 
 export default function Dropzone() {
+  const hiddenInputRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<FileType[]>([]);
   const [tooLarge, setTooLarge] = useState<boolean>(false);
   const { getRootProps, getInputProps } = useDropzone({
@@ -22,6 +23,17 @@ export default function Dropzone() {
           }),
         ),
       );
+
+      if (hiddenInputRef.current) {
+        // file needs to be moved to a hidden input, React-dropzone does not submit the files in form submissions by default.
+        const dataTransfer = new DataTransfer();
+
+        acceptedFiles.forEach((v) => {
+          dataTransfer.items.add(v);
+        });
+
+        hiddenInputRef.current.files = dataTransfer.files;
+      }
     },
     // this is for change image button, should only work when clicked and not accept any dragged files
     // if a file is selected (files array's not empty) means the change btn is visible
@@ -55,7 +67,15 @@ export default function Dropzone() {
   return (
     <div className="container mb-7">
       <p className="text-neutral-0 text-xl">Upload Avatar</p>
+      {/* hidden input ref should be outside the dropzone box, because if its not the formData would not be able to get the files data since hiddenInput wont be present in the dom. this took me hours to realize, damn.*/}
+      <input
+        className="absolute h-[1px] w-[1px] overflow-hidden whitespace-nowrap opacity-0"
+        type="file"
+        name="my-avatar"
+        ref={hiddenInputRef}
+      />
       {files.length === 0 ? (
+        // dropzone box. hidden if theres a selected avatar
         <div
           {...getRootProps({
             className:
@@ -71,6 +91,7 @@ export default function Dropzone() {
           </p>
         </div>
       ) : (
+        // preview box
         <div className="border-neutral-0 my-3 rounded-xl border border-dashed bg-slate-500/25 py-5 text-center">
           {files.map((file) => (
             <div

@@ -2,8 +2,14 @@ import Dropzone from "./dropzone";
 import Input from "./Input";
 
 export default function Form() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    console.log(Object.fromEntries(formData));
+  };
   return (
-    <form action="/">
+    <form onSubmit={handleSubmit}>
       <Dropzone></Dropzone>
       <div className="grid gap-y-7">
         <Input label="Full Name" type="text" name="fullName"></Input>
