@@ -11,7 +11,7 @@ export default function Form({
       avatar: formData.get("myAvatar"),
       name: formData.get("fullName"),
       email: formData.get("emailAddress"),
-      ghUsername: formData.get("ghUsername"),
+      ghUserName: formData.get("ghUsername"),
     };
 
     sessionStorage.setItem("formData", JSON.stringify(formValues));

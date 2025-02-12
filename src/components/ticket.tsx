@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 interface FormDataTypes {
   name: string;
   email: string;
+  ghUserName: string;
   avatar: {
     preview: string;
   };
@@ -21,7 +22,18 @@ export default function Ticket({ formSubmitted }: { formSubmitted: boolean }) {
 
   return (
     <div>
-      <img src={formData?.avatar.preview} alt="" />
+      <div>
+        <div>
+          <img src="/images/logo-full.svg" alt="" />
+          <div>Jan 31, 2025 / Austin, Tx</div>
+        </div>
+        <div>
+          <img src={formData?.avatar.preview} alt="" />
+          <div>{formData?.name}</div>
+          <div>{formData?.ghUserName}</div>
+        </div>
+      </div>
+      <div>#01609</div>
     </div>
   );
 }
