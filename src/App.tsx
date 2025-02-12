@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Form from "./components/form";
 
 function App() {
+  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+
   return (
     <div className="px-[4%] pt-8 pb-28">
       <img className="mx-auto mb-11" src="/images/logo-full.svg" alt="" />
@@ -10,7 +13,7 @@ function App() {
       <h2 className="mt-8 mb-11 text-center text-xl leading-[1.2] text-neutral-300">
         Secure your spot at next year's biggest coding conference.
       </h2>
-      <Form></Form>
+      {formSubmitted ? "" : <Form setFormSubmitted={setFormSubmitted}></Form>}
     </div>
   );
 }
