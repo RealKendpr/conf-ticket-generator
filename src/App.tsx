@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Form from "./components/form";
+import Ticket from "./components/ticket";
 
 function App() {
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
@@ -13,7 +14,11 @@ function App() {
       <h2 className="mt-8 mb-11 text-center text-xl leading-[1.2] text-neutral-300">
         Secure your spot at next year's biggest coding conference.
       </h2>
-      {formSubmitted ? "" : <Form setFormSubmitted={setFormSubmitted}></Form>}
+      {formSubmitted ? (
+        <Ticket formSubmitted={formSubmitted}></Ticket>
+      ) : (
+        <Form setFormSubmitted={setFormSubmitted}></Form>
+      )}
     </div>
   );
 }
