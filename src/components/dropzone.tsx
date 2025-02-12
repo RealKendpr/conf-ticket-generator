@@ -71,7 +71,7 @@ export default function Dropzone() {
       <input
         className="absolute h-[1px] w-[1px] overflow-hidden whitespace-nowrap opacity-0"
         type="file"
-        name="my-avatar"
+        name="myAvatar"
         ref={hiddenInputRef}
       />
       {files.length === 0 ? (

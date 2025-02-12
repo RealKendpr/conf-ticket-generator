@@ -1,15 +1,25 @@
 import Dropzone from "./dropzone";
 import Input from "./Input";
 
-export default function Form() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+export default function Form({
+  setFormSubmitted,
+}: {
+  setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  const handleSubmit = (formData: FormData) => {
+    const formValues = {
+      avatar: formData.get("myAvatar"),
+      name: formData.get("fullName"),
+      email: formData.get("emailAddress"),
+      ghUsername: formData.get("ghUsername"),
+    };
 
-    const formData = new FormData(e.currentTarget);
-    console.log(Object.fromEntries(formData));
+    sessionStorage.setItem("formData", JSON.stringify(formValues));
+    setFormSubmitted(true);
   };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form action={handleSubmit}>
       <Dropzone></Dropzone>
       <div className="grid gap-y-7">
         <Input label="Full Name" type="text" name="fullName"></Input>
