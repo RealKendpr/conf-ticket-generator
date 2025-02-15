@@ -24,7 +24,7 @@ export default function Form({
   };
 
   return (
-    <form action={handleSubmit}>
+    <form className="max-w-[460px] md:mx-auto" action={handleSubmit}>
       <Dropzone></Dropzone>
       <div className="grid gap-y-7">
         <Input label="Full Name" type="text" name="fullName"></Input>

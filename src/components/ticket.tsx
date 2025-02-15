@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react";
+import { FormDataTypes } from "../App";
 
-interface FormDataTypes {
-  name: string;
-  email: string;
-  ghUserName: string;
-  ticketNumber: number;
-  avatar: {
-    preview: string;
-  };
-}
-
-export default function Ticket({ formSubmitted }: { formSubmitted: boolean }) {
-  const [formData, setFormData] = useState<FormDataTypes | null>(null);
-
-  useEffect(() => {
-    // retrieve formData from sessionStorage to be used for the ticket preview
-    const storedData = sessionStorage.getItem("formData");
-    if (storedData) {
-      setFormData(JSON.parse(storedData));
-    }
-  }, [formSubmitted]);
-
+export default function Ticket({
+  formData,
+}: {
+  formData: FormDataTypes | null;
+}) {
   return (
     // https://cssgrid-generator.netlify.app/
     <div className="grid max-h-[161px] min-h-[161px] max-w-[345px] min-w-[345px] grid-cols-[1fr_20%] grid-rows-2 gap-y-[34px] overflow-scroll bg-[url(/images/pattern-ticket.svg)] bg-cover bg-center bg-no-repeat pt-[19px] pb-[15px] pl-4">
