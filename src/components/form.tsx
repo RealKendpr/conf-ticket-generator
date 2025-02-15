@@ -6,12 +6,17 @@ export default function Form({
 }: {
   setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const generateRandomNumber = () => {
+    // Generate a random 5 digit number
+    return Math.floor(Math.random() * 90000);
+  };
   const handleSubmit = (formData: FormData) => {
     const formValues = {
       avatar: formData.get("myAvatar"),
       name: formData.get("fullName"),
       email: formData.get("emailAddress"),
       ghUserName: formData.get("ghUsername"),
+      ticketNumber: generateRandomNumber(),
     };
 
     sessionStorage.setItem("formData", JSON.stringify(formValues));
