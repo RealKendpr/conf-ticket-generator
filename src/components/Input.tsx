@@ -11,7 +11,10 @@ export default function Input({
 }) {
   return (
     <div>
-      <label className="text-neutral-0 text-xl" htmlFor={name}>
+      <label
+        className="text-neutral-0 mb-4 inline-block text-xl leading-none"
+        htmlFor={name}
+      >
         {label}
       </label>
       <input
