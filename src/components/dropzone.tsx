@@ -83,7 +83,7 @@ export default function Dropzone() {
           })}
         >
           <input {...getInputProps()} />
-          <div className="mx-auto grid size-[51px] place-items-center rounded-xl border-2 border-neutral-300/50">
+          <div className="mx-auto grid size-[51px] place-items-center rounded-xl border-2 border-neutral-300/50 bg-neutral-500/25 shadow-xl">
             <img src="/images/icon-upload.svg" alt="" />
           </div>
           <p className="text-neutral-0 mt-4">
@@ -95,7 +95,7 @@ export default function Dropzone() {
         <div className="border-neutral-0 my-3 rounded-xl border border-dashed bg-slate-500/25 py-5 text-center">
           {files.map((file) => (
             <div
-              className="mx-auto grid size-[51px] place-items-center overflow-hidden rounded-xl border-2 border-neutral-300/50"
+              className="mx-auto grid size-[51px] place-items-center overflow-hidden rounded-xl border-2 border-neutral-300/50 shadow-xl"
               key={file.name}
             >
               <img

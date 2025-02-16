@@ -27,8 +27,12 @@ function App() {
   }, [formSubmitted]);
 
   return (
-    <div className="mx-auto px-[4%] pt-8 pb-28 md:max-w-[785px] md:px-0">
-      <img className="mx-auto mb-11" src="/images/logo-full.svg" alt="" />
+    <div className="mx-auto px-[4%] pt-8 pb-28 md:max-w-[785px] md:px-0 md:pt-10">
+      <img
+        className="mx-auto mb-11 md:mb-[62px]"
+        src="/images/logo-full.svg"
+        alt=""
+      />
       <Headings
         name={formData?.name}
         email={formData?.email}
