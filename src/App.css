@@ -14,6 +14,7 @@
   --color-orange-*: initial;
   --color-orange-500: hsl(7, 88%, 67%);
   --color-orange-700: hsl(7, 71%, 60%);
+  --color-orange-gradient: hsl(7, 86%, 67%);
 
   --color-neutral-*: initial;
   --color-neutral-0: hsl(0, 0%, 100%);
