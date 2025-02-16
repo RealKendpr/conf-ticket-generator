@@ -7,12 +7,27 @@
     <title>Conference Ticket Generator</title>
   </head>
   <body
-    class="font-display h-screen bg-[url('/images/background-mobile.png')] bg-center bg-no-repeat md:bg-[url('/images/background-tablet.png')] lg:bg-[url('/images/background-desktop.png')]"
+    class="font-display relative h-screen overflow-x-hidden bg-[url('/images/background-mobile.png')] bg-center bg-no-repeat md:bg-[url('/images/background-tablet.png')] lg:bg-[url('/images/background-desktop.png')]"
   >
     <img
+      class="absolute -z-10 h-screen object-cover object-left md:h-fit"
       src="/images/pattern-lines.svg"
       alt=""
-      class="absolute -z-10 h-screen object-cover object-left md:h-fit"
+    />
+    <img
+      class="absolute top-[23px] right-0 -z-10 w-[29.6vw] md:top-[78px]"
+      src="/images/pattern-squiggly-line-top.svg"
+      alt=""
+    />
+    <img
+      class="absolute -top-[27px] -left-[20px] -z-10 w-[28vw] lg:left-[42px] lg:max-w-[217px]"
+      src="/images/pattern-circle.svg"
+      alt=""
+    />
+    <img
+      class="absolute top-[534px] -right-[43px] -z-10 w-[28vw] lg:right-[20%] lg:max-w-[217px]"
+      src="/images/pattern-circle.svg"
+      alt=""
     />
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
