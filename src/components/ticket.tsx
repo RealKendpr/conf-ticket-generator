@@ -7,32 +7,36 @@ export default function Ticket({
 }) {
   return (
     // https://cssgrid-generator.netlify.app/
-    <div className="grid max-h-[161px] min-h-[161px] max-w-[345px] min-w-[345px] grid-cols-[1fr_20%] grid-rows-2 gap-y-[34px] overflow-scroll bg-[url(/images/pattern-ticket.svg)] bg-cover bg-center bg-no-repeat pt-[19px] pb-[15px] pl-4">
+    <div className="mx-auto grid max-h-[161px] min-h-[161px] max-w-[345px] min-w-[345px] grid-cols-[1fr_20%] grid-rows-2 gap-y-[34px] overflow-scroll bg-[url(/images/pattern-ticket.svg)] bg-cover bg-center bg-no-repeat pt-[19px] pb-[15px] pl-4 md:max-h-[282px] md:max-w-[605px] md:gap-y-[62px] md:py-[30px] md:pl-6 lg:mx-auto">
       <div className="text-neutral-0 col-start-1 col-end-2 row-start-1 row-end-2 flex">
-        <div className="mr-3 size-7">
+        <div className="mr-3 size-7 md:mr-5 md:size-[39px]">
           <img src="/images/logo-mark.svg" alt="" />
         </div>
         <div>
-          <div className="mb-3 text-xl leading-none font-bold">Coding Conf</div>
-          <div className="text-sm leading-none">Jan 31, 2025 / Austin, Tx</div>
+          <div className="mb-3 text-xl leading-none font-bold md:text-[38px] md:leading-[.8]">
+            Coding Conf
+          </div>
+          <div className="text-neutral-0/50 text-sm leading-none md:text-lg">
+            Jan 31, 2025 / Austin, Tx
+          </div>
         </div>
       </div>
       <div className="text-neutral-0 col-start-1 col-end-2 row-start-2 row-end-3 flex">
-        <div className="mr-3 size-[51px] overflow-hidden rounded-xl">
+        <div className="mr-3 size-[51px] overflow-hidden rounded-xl md:size-[80px]">
           <img src={formData?.avatar.preview} alt="" />
         </div>
         <div>
-          <div className="mt-[6px] mb-2 text-lg leading-none font-medium">
+          <div className="mt-[6px] mb-2 text-lg leading-none font-medium md:text-[28px]">
             {formData?.name}
           </div>
-          <div className="flex items-center text-sm leading-none">
+          <div className="text-neutral-0/50 flex items-center text-sm leading-none md:text-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22"
               height="23"
               fill="none"
               viewBox="0 0 22 23"
-              className="mr-1 size-4"
+              className="mr-1 size-4 md:size-[22px]"
             >
               <path
                 fill="#D1D0D5"
@@ -46,7 +50,7 @@ export default function Ticket({
         </div>
       </div>
       <div className="col-start-2 col-end-3 row-start-1 row-end-3 grid place-items-center">
-        <p className="text-neutral-0 rotate-90 text-xl text-neutral-500">
+        <p className="text-neutral-0 rotate-90 text-xl text-neutral-500 md:text-[27.5px]">
           #{formData?.ticketNumber}
         </p>
       </div>
