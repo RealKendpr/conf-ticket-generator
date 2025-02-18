@@ -1,14 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEventHandler, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 interface FileType extends File {
   preview: string;
 }
 
-export default function Dropzone() {
-  const hiddenInputRef = useRef<HTMLInputElement>(null);
+export default function Dropzone({
+  onChange,
+}: {
+  onChange: ChangeEventHandler<HTMLInputElement>;
+}) {
   const [files, setFiles] = useState<FileType[]>([]);
   const [tooLarge, setTooLarge] = useState<boolean>(false);
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       // should only accept jpeg, png
@@ -23,17 +27,6 @@ export default function Dropzone() {
           }),
         ),
       );
-
-      if (hiddenInputRef.current) {
-        // file needs to be moved to a hidden input, React-dropzone does not submit the files in form submissions by default.
-        const dataTransfer = new DataTransfer();
-
-        acceptedFiles.forEach((v) => {
-          dataTransfer.items.add(v);
-        });
-
-        hiddenInputRef.current.files = dataTransfer.files;
-      }
     },
     // this is for change image button, should only work when clicked and not accept any dragged files
     // if a file is selected (files array's not empty) means the change btn is visible
@@ -67,13 +60,7 @@ export default function Dropzone() {
   return (
     <div className="container mb-7">
       <p className="text-neutral-0 text-xl">Upload Avatar</p>
-      {/* hidden input ref should be outside the dropzone box, because if its not the formData would not be able to get the files data since hiddenInput wont be present in the dom. this took me hours to realize, damn.*/}
-      <input
-        className="absolute h-[1px] w-[1px] overflow-hidden whitespace-nowrap opacity-0"
-        type="file"
-        name="myAvatar"
-        ref={hiddenInputRef}
-      />
+      {/* removed the hidden input ref because we are now using react-hook-form to get the file's preview url */}
       {files.length === 0 ? (
         // dropzone box. hidden if theres a selected avatar
         <div
@@ -82,7 +69,7 @@ export default function Dropzone() {
               "dropzone border-neutral-0 bg-slate-500/25 border border-dashed pt-5 pb-[23px] text-center rounded-xl cursor-pointer my-3",
           })}
         >
-          <input {...getInputProps()} />
+          <input {...getInputProps({ onChange })} />
           <div className="mx-auto grid size-[51px] place-items-center rounded-xl border-2 border-neutral-300/50 bg-neutral-500/25 shadow-xl">
             <img src="/images/icon-upload.svg" alt="" />
           </div>
@@ -119,7 +106,7 @@ export default function Dropzone() {
                 className: "dropzone",
               })}
             >
-              <input {...getInputProps()} />
+              <input {...getInputProps({ onChange })} />
               Change image
             </div>
           </div>

@@ -1,4 +1,4 @@
-import Dropzone from "./dropzone";
+import DropZoneField from "./dropzoneField";
 import Input from "./Input";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { FormDataTypes } from "../App";
@@ -31,7 +31,7 @@ export default function Form({
         className="mx-auto max-w-[460px]"
         onSubmit={methods.handleSubmit(onSubmit)}
       >
-        <Dropzone></Dropzone>
+        <DropZoneField></DropZoneField>
         <div className="grid gap-y-7">
           <Input label="Full Name" type="text" name="fullName"></Input>
           <Input

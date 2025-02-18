@@ -23,7 +23,7 @@ export default function Ticket({
       </div>
       <div className="text-neutral-0 col-start-1 col-end-2 row-start-2 row-end-3 flex">
         <div className="mr-3 size-[51px] overflow-hidden rounded-xl md:size-[80px]">
-          {/* <img src={formData?.avatar.preview} alt="" /> */}
+          <img src={formData?.myAvatar?.preview} alt="" />
         </div>
         <div>
           <div className="mt-[6px] mb-2 text-lg leading-none font-medium md:text-[28px]">

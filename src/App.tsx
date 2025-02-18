@@ -8,7 +8,7 @@ export interface FormDataTypes {
   emailAddress: string;
   ghUsername: string;
   ticketNumber: number;
-  avatar: {
+  myAvatar: {
     preview: string;
   };
 }
