@@ -1,3 +1,5 @@
+import { useFormContext } from "react-hook-form";
+
 export default function Input({
   label,
   type,
@@ -9,6 +11,8 @@ export default function Input({
   name: string;
   placeholder?: string;
 }) {
+  const { register } = useFormContext();
+
   return (
     <div>
       <label
@@ -20,10 +24,8 @@ export default function Input({
       <input
         className="text-neutral-0 w-full rounded-xl border border-neutral-500 bg-neutral-500/25 px-4 pt-5 pb-4 text-lg"
         type={type}
-        name={name}
-        id={name}
+        {...register(name, { required: true })}
         placeholder={placeholder}
-        required
       />
     </div>
   );

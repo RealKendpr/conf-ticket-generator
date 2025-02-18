@@ -23,11 +23,11 @@ export default function Ticket({
       </div>
       <div className="text-neutral-0 col-start-1 col-end-2 row-start-2 row-end-3 flex">
         <div className="mr-3 size-[51px] overflow-hidden rounded-xl md:size-[80px]">
-          <img src={formData?.avatar.preview} alt="" />
+          {/* <img src={formData?.avatar.preview} alt="" /> */}
         </div>
         <div>
           <div className="mt-[6px] mb-2 text-lg leading-none font-medium md:text-[28px]">
-            {formData?.name}
+            {formData?.fullName}
           </div>
           <div className="text-neutral-0/50 flex items-center text-sm leading-none md:text-lg">
             <svg
@@ -45,7 +45,7 @@ export default function Ticket({
                 clipRule="evenodd"
               />
             </svg>
-            <span>{formData?.ghUserName}</span>
+            <span>{formData?.ghUsername}</span>
           </div>
         </div>
       </div>

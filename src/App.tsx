@@ -4,9 +4,9 @@ import Ticket from "./components/ticket";
 import Headings from "./components/headings";
 
 export interface FormDataTypes {
-  name: string;
-  email: string;
-  ghUserName: string;
+  fullName: string;
+  emailAddress: string;
+  ghUsername: string;
   ticketNumber: number;
   avatar: {
     preview: string;
@@ -34,8 +34,8 @@ function App() {
         alt=""
       />
       <Headings
-        name={formData?.name}
-        email={formData?.email}
+        name={formData?.fullName}
+        email={formData?.emailAddress}
         formSubmitted={formSubmitted}
       />
       {formSubmitted ? (
