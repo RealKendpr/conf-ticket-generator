@@ -17,12 +17,12 @@ export default function Ticket({
             Coding Conf
           </div>
           <div className="text-neutral-0/50 text-sm leading-none md:text-lg">
-            Jan 31, 2025 / Austin, Tx
+            Jan 31, 2025 / Austin, TX
           </div>
         </div>
       </div>
       <div className="text-neutral-0 col-start-1 col-end-2 row-start-2 row-end-3 flex">
-        <div className="mr-3 size-[51px] overflow-hidden rounded-xl md:size-[80px]">
+        <div className="mr-3 grid size-[51px] place-items-center overflow-hidden rounded-xl md:size-[80px]">
           <img src={formData?.myAvatar?.preview} alt="" />
         </div>
         <div>
