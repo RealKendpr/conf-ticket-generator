@@ -1,17 +1,26 @@
 import { useFormContext } from "react-hook-form";
+import RequiredAlert from "./requiredAlert";
 
 export default function Input({
   label,
-  type,
   name,
   placeholder,
+  pattern,
 }: {
   label: string;
-  type: "text" | "email";
   name: string;
   placeholder?: string;
+  pattern?: RegExp | undefined;
 }) {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  const validationRule = {
+    required: true,
+    pattern: pattern,
+  };
 
   return (
     <div>
@@ -23,10 +32,15 @@ export default function Input({
       </label>
       <input
         className="text-neutral-0 w-full rounded-xl border border-neutral-500 bg-neutral-500/25 px-4 pt-5 pb-4 text-lg"
-        type={type}
-        {...register(name, { required: true })}
+        type="text"
+        {...register(name, validationRule)}
         placeholder={placeholder}
       />
+      {errors[name] && (
+        <RequiredAlert
+          errorMsg={`Please enter a valid ${label.toLowerCase()}`}
+        />
+      )}
     </div>
   );
 }

@@ -33,18 +33,18 @@ export default function Form({
       >
         <DropZoneField></DropZoneField>
         <div className="grid gap-y-7">
-          <Input label="Full Name" type="text" name="fullName"></Input>
+          <Input label="Full Name" name="fullName"></Input>
           <Input
             label="Email Address"
-            type="email"
             name="emailAddress"
             placeholder="example@email.com"
+            pattern={/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim}
           ></Input>
           <Input
             label="Github Username"
-            type="text"
             name="ghUsername"
             placeholder="@yourusername"
+            pattern={/^@/}
           ></Input>
         </div>
         <button
