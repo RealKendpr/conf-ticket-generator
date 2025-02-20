@@ -1,4 +1,5 @@
 import { FormDataTypes } from "../App";
+const BASE_URL = import.meta.env.BASE_URL;
 
 export default function Ticket({
   formData,
@@ -10,7 +11,7 @@ export default function Ticket({
     <div className="mx-auto grid max-h-[161px] min-h-[161px] max-w-[345px] min-w-[345px] grid-cols-[1fr_20%] grid-rows-2 gap-y-[34px] overflow-scroll bg-[url(/images/pattern-ticket.svg)] bg-cover bg-center bg-no-repeat pt-[19px] pb-[15px] pl-4 md:max-h-[282px] md:max-w-[605px] md:gap-y-[62px] md:py-[30px] md:pl-6 lg:mx-auto">
       <div className="text-neutral-0 col-start-1 col-end-2 row-start-1 row-end-2 flex">
         <div className="mr-3 size-7 md:mr-5 md:size-[39px]">
-          <img src="/images/logo-mark.svg" alt="" />
+          <img src={`${BASE_URL}images/logo-mark.svg`} alt="" />
         </div>
         <div>
           <div className="mb-3 text-xl leading-none font-bold md:text-[38px] md:leading-[.8]">
@@ -23,6 +24,7 @@ export default function Ticket({
       </div>
       <div className="text-neutral-0 col-start-1 col-end-2 row-start-2 row-end-3 flex">
         <div className="mr-3 grid size-[51px] place-items-center overflow-hidden rounded-xl md:size-[80px]">
+          {/* <img src="https://api.dicebear.com/9.x/fun-emoji/svg" alt="" /> */}
           <img src={formData?.myAvatar?.preview} alt="" />
         </div>
         <div>

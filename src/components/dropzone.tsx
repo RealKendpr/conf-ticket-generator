@@ -1,5 +1,6 @@
 import { ChangeEventHandler, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
+const BASE_URL = import.meta.env.BASE_URL;
 
 interface FileType extends File {
   preview: string;
@@ -71,7 +72,7 @@ export default function Dropzone({
         >
           <input {...getInputProps({ onChange })} />
           <div className="mx-auto grid size-[51px] place-items-center rounded-xl border-2 border-neutral-300/50 bg-neutral-500/25 shadow-xl">
-            <img src="/images/icon-upload.svg" alt="" />
+            <img src={`${BASE_URL}/images/icon-upload.svg`} alt="" />
           </div>
           <p className="text-neutral-0 mt-4">
             Drag and drop or click to upload
