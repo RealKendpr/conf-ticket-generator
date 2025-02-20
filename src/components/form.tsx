@@ -1,4 +1,4 @@
-import DropZoneField from "./dropzoneField";
+import DropZoneField from "./dropzone/dropzoneController";
 import Input from "./Input";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { FormDataTypes } from "../App";
@@ -44,7 +44,9 @@ export default function Form({
             label="Github Username"
             name="ghUsername"
             placeholder="@yourusername"
-            pattern={/^@/}
+            pattern={
+              /^@(?=[a-zA-Z0-9-]{1,39}$)(?!.*--)(?!.*-$)(?!^-)[a-zA-Z0-9-]+$/
+            }
           ></Input>
         </div>
         <button
