@@ -22,4 +22,9 @@
   --color-neutral-500: hsl(245, 15%, 58%);
   --color-neutral-700: hsl(245, 19%, 35%);
   --color-neutral-900: hsl(248, 70%, 10%);
+
+  /* https://utopia.fyi/type/calculator?c=375,19,1.22,1440,22.95,1.6,2,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --text-0: clamp(1.1875rem, 1.1006rem + 0.3709vw, 1.4344rem);
+  --text-1: clamp(1.4488rem, 1.1508rem + 1.2714vw, 2.295rem);
+  --text-2: clamp(1.7675rem, 1.0969rem + 2.8613vw, 3.672rem);
 }
