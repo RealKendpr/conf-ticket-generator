@@ -15,7 +15,7 @@ export default function DropzoneField({
     <div
       {...getRootProps({
         className:
-          "dropzone border-neutral-0 bg-slate-500/25 border border-dashed pt-5 pb-[23px] text-center rounded-xl cursor-pointer my-3",
+          "dropzone border-neutral-500/50 bg-slate-500/20 hover:bg-neutral-700/85 border border-dashed pt-5 pb-[23px] text-center rounded-xl cursor-pointer my-3 backdrop-blur-[3px] transition-colors",
       })}
     >
       <input {...getInputProps({ onChange })} />

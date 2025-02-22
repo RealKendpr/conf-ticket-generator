@@ -31,7 +31,7 @@ export default function Input({
         {label}
       </label>
       <input
-        className="text-neutral-0 w-full rounded-xl border border-neutral-500 bg-neutral-500/25 px-4 pt-5 pb-4 text-lg"
+        className="text-neutral-0 w-full rounded-xl border-[2px] border-neutral-500/50 bg-neutral-500/20 px-4 pt-5 pb-4 text-lg backdrop-blur-[3px] transition-colors hover:cursor-pointer hover:bg-neutral-700/85 focus-visible:cursor-text"
         type="text"
         {...register(name, validationRule)}
         placeholder={placeholder}
