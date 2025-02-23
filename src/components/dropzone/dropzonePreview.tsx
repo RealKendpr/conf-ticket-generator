@@ -38,7 +38,11 @@ export default function DropzonePreview({
       ))}
       {/* Avatar options */}
       <div className="mt-4 flex justify-center gap-2 text-xs text-neutral-300 *:cursor-pointer *:rounded-md *:bg-neutral-300/50 *:px-2 *:pt-[5px] *:pb-[6px]">
-        <button className="underline" onClick={handleRemoveImg}>
+        <button
+          className="underline"
+          onClick={handleRemoveImg}
+          aria-label="Remove image"
+        >
           Remove image
         </button>
         {/* change image button is just a dropzone but with drag n drop disabled */}
@@ -47,7 +51,7 @@ export default function DropzonePreview({
             className: "dropzone",
           })}
         >
-          <input {...getInputProps({ onChange })} />
+          <input {...getInputProps({ onChange })} aria-label="Change image" />
           Change image
         </div>
       </div>

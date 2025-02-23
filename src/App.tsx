@@ -28,7 +28,7 @@ function App() {
   }, [formSubmitted]);
 
   return (
-    <div className="mx-auto px-[4%] pt-8 pb-28 md:max-w-[785px] md:px-0 md:pt-10 md:pb-36">
+    <main className="mx-auto px-[4%] pt-8 pb-28 md:max-w-[785px] md:px-0 md:pt-10 md:pb-36">
       <img
         className="mx-auto mb-11 md:mb-[62px]"
         src={`${BASE_URL}images/logo-full.svg`}
@@ -44,7 +44,7 @@ function App() {
       ) : (
         <Form setFormSubmitted={setFormSubmitted} />
       )}
-    </div>
+    </main>
   );
 }
 
