@@ -32,7 +32,7 @@ function App() {
       <img
         className="mx-auto mb-11 md:mb-[62px]"
         src={`${BASE_URL}images/logo-full.svg`}
-        alt=""
+        alt="Coding Conf Logo"
       />
       <Headings
         name={formData?.fullName}

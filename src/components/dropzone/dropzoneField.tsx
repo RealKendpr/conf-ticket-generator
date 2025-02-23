@@ -20,7 +20,11 @@ export default function DropzoneField({
     >
       <input {...getInputProps({ onChange })} aria-hidden />
       <div className="mx-auto grid size-[51px] place-items-center rounded-xl border-2 border-neutral-300/50 bg-neutral-500/25 shadow-xl">
-        <img src={`${BASE_URL}/images/icon-upload.svg`} alt="" />
+        <img
+          src={`${BASE_URL}/images/icon-upload.svg`}
+          alt=""
+          aria-hidden="true"
+        />
       </div>
       <p className="text-neutral-0 mt-4">Drag and drop or click to upload</p>
     </div>
