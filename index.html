@@ -7,7 +7,7 @@
     <title>Conference Ticket Generator</title>
   </head>
   <body
-    class="font-display relative h-screen min-w-[320px] overflow-x-hidden bg-neutral-900 bg-[url('/images/background-mobile.png')] bg-center bg-no-repeat md:bg-[url('/images/background-tablet.png')] lg:bg-[url('/images/background-desktop.png')]"
+    class="font-display relative min-w-[320px] overflow-x-hidden bg-neutral-900 bg-[url('/images/background-mobile.png')] bg-center bg-no-repeat md:bg-[url('/images/background-tablet.png')] lg:bg-[url('/images/background-desktop.png')]"
   >
     <div
       class="absolute right-0 left-0 -z-10 h-screen bg-[url(/images/pattern-lines.svg)] bg-fixed bg-left-top bg-no-repeat"
@@ -28,6 +28,9 @@
       alt=""
     />
     <div id="root"></div>
+    <div
+      class="absolute bottom-0 left-0 -z-10 h-[210px] w-[301px] bg-[url(/images/pattern-squiggly-line-bottom-mobile-tablet.svg)] bg-contain bg-left-bottom bg-no-repeat lg:h-[400px] lg:w-[825px] lg:bg-[url(/images/pattern-squiggly-line-bottom-desktop.svg)]"
+    ></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
