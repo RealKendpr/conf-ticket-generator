@@ -35,6 +35,7 @@ export default function Input({
         type="text"
         {...register(name, validationRule)}
         placeholder={placeholder}
+        id={name}
       />
       {errors[name] && (
         <RequiredAlert
